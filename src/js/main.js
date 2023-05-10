@@ -1,3 +1,3 @@
-import productList from "./productList";
+import productList from './productList';
 
-productList(".product-list", "tents");
+productList('.product-list', 'tents');
