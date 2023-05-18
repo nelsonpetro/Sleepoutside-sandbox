@@ -12,7 +12,7 @@ loadHeaderFooter()
     }
   })
   .catch((error) => {
-    console.error('Error loading header and footer:', error);
+    alert('Error loading header and footer: ' + error);
   });
 
 
