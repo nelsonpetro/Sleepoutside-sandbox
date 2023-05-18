@@ -36,7 +36,49 @@ export function renderListWithTemplate(templateFn, parentElement, list, position
   if (clear) {
     parentElement.innerHTML = '';
   }
-
   const htmlStrings =  list.map(templateFn);
   parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
+}
+
+export async function renderWithTemplate(templateFn, parentElement, data, callback, position = 'afterbegin', clear = true) {
+  const template = await templateFn(data);
+
+  if (clear) {
+      parentElement.innerHTML = '';
+  }
+  parentElement.insertAdjacentHTML(position, template);
+  if(callback) {
+      callback(data);
+  }
+}
+
+function loadTemplate(path) {
+  return async function() {
+    return fetch(path)
+      .then((res) => {
+        if (res.ok) {
+          return res.text();
+        } else {
+          throw new Error('Network response was not ok.');
+        }
+      });
+  };
+} 
+
+export async function loadHeaderFooter() {
+  return new Promise((resolve, reject) => {
+    const headerTemplateFn = loadTemplate('/partials/header.html');
+    const footerTemplateFn = loadTemplate('/partials/footer.html');
+    const headerElement = document.querySelector('#main-header');
+    const footerElement = document.querySelector('#main-footer');
+
+    renderWithTemplate(headerTemplateFn, headerElement)
+      .then(() => renderWithTemplate(footerTemplateFn, footerElement))
+      .then(() => {
+        resolve();
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
 }

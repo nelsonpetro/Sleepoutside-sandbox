@@ -1,8 +1,6 @@
-import productList from './productList';
-import {loadHeaderFooter} from './utils.mjs'
+import { loadHeaderFooter } from './utils.mjs';
 import { updateCartCount } from './superscript.mjs';
 
-productList('.product-list', 'tents');
 loadHeaderFooter()
   .then(() => {
     updateCartCount();
@@ -11,5 +9,9 @@ loadHeaderFooter()
     console.error('Error loading header and footer:', error);
   });
 
-
-
+const addToCartBtn = document.querySelector('#addToCart');
+if(addToCartBtn) {
+  addToCartBtn.addEventListener('click', () => {
+    updateCartCount();
+  });
+}
