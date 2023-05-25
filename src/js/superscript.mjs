@@ -1,7 +1,6 @@
 export async function updateCartCount() {
   const itemCountElement = document.querySelector('#itemCount');
-  const itemCount = JSON.parse(localStorage.getItem('so-cart')).length;
-
+  const itemCount = localStorage.getItem('so-cart') ? JSON.parse(localStorage.getItem('so-cart')).length : 0;
   if (itemCount) {
     itemCountElement.textContent = itemCount;
   }
