@@ -15,11 +15,10 @@ export function setLocalStorage(key, data) {
 }
 
 export function getParameter(item){
-
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const product = urlParams.get(item)
-return product;
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const product = urlParams.get(item);
+  return product;
 }
 // set a listener for both touchend and click
 export function setClick(selector, callback) {

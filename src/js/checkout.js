@@ -5,7 +5,7 @@ loadHeaderFooter()
   .then(() => {
     updateCartCount();
     const addToCartBtn = document.querySelector('#addToCart');
-    if(addToCartBtn) {
+    if (addToCartBtn) {
       addToCartBtn.addEventListener('click', () => {
         updateCartCount();
       });
@@ -14,5 +14,3 @@ loadHeaderFooter()
   .catch((error) => {
     alert('Error loading header and footer: ' + error);
   });
-
-

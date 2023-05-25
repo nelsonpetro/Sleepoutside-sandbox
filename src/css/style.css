@@ -1,6 +1,6 @@
 :root {
   --font-body: Arial, Helvetica, sans-serif;
-  --font-headline: Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  --font-headline: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   /* colors */
   --primary-color: #f0a868;
   --secondary-color: #525b0f;
@@ -227,7 +227,7 @@ footer {
 }
 
 #superscript {
-  background-color: #e28431;;
+  background-color: #e28431;
   color: white;
   font-family: var(--font-body);
   font-size: 12px;
@@ -239,3 +239,23 @@ footer {
   top: 10px;
   left: 10px;
 }
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  list-style: none;
+  gap: 100px;
+}
+
+.products-grid a{
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}
+
+.products-grid img {
+  object-fit: cover;
+  width: 100%;
+  max-height: 100%;
+}
+

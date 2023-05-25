@@ -1,8 +1,7 @@
 import productList from './productList';
-import { loadHeaderFooter } from './utils.mjs';
+import { loadHeaderFooter, getParameter } from './utils.mjs';
 import { updateCartCount } from './superscript.mjs';
 
-productList('.product-list', 'tents');
 loadHeaderFooter()
   .then(() => {
     updateCartCount();
@@ -10,3 +9,6 @@ loadHeaderFooter()
   .catch((error) => {
     alert('Error loading header and footer: ' + error);
   });
+
+const category = getParameter('category');
+productList('.product-list', category);
