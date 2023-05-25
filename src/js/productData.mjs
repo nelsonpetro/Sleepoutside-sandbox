@@ -1,4 +1,4 @@
-const baseURL = import.meta.env.VITE_SERVER_URL;
+const baseURL = 'https://wdd330-backend.onrender.com/';
 
 // var responseClone; // 1
 // fetch(baseURL + `products/search/tents`)
@@ -33,5 +33,5 @@ export async function getData(category) {
 export async function findProductById(id) {
   return fetch(baseURL + `product/${id}`)
     .then(convertToJson)
-    .then((data) => data.Result)
+    .then((data) => data.Result);
 }
