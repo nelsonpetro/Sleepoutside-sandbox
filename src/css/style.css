@@ -134,6 +134,12 @@ button {
   list-style-type: none;
   padding: 0;
 }
+
+.product-list.cart-list{
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .product-list a {
   text-decoration: none;
   color: var(--dark-grey);
@@ -242,9 +248,9 @@ footer {
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   list-style: none;
-  gap: 100px;
+  gap: 50px;
 }
 
 .products-grid a{
@@ -253,9 +259,4 @@ footer {
   text-align: center;
 }
 
-.products-grid img {
-  object-fit: cover;
-  width: 100%;
-  max-height: 100%;
-}
 

@@ -33,5 +33,5 @@ export async function getData(category) {
 export async function findProductById(id) {
   return fetch(baseURL + `product/${id}`)
     .then(convertToJson)
-    .then((data) => data.Result)
+    .then((data) => data.Result);
 }
