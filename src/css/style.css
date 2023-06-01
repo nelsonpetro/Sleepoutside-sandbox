@@ -81,7 +81,7 @@ header {
   color: var(--tertiary-color);
 }
 
-button {
+button, .submitBtn {
   padding: 0.5em 2em;
   background-color: var(--secondary-color);
   color: white;
@@ -90,7 +90,13 @@ button {
   border: 0;
   font-size: var(--large-font);
   cursor: pointer;
+  margin-bottom: 10px;
 }
+
+button:hover, .submitBtn:hover {
+  background-color: #474e0e;
+}
+
 .divider {
   border-bottom: 2px solid var(--primary-color);
 }
@@ -259,4 +265,67 @@ footer {
   text-align: center;
 }
 
+.cart-footer.hide {
+  display: none;
+}
 
+.cart-footer {
+  font-weight: 600;
+}
+
+.cart-footer p {
+  text-align: center;
+}
+
+.cart-footer a {
+  text-decoration: none;
+}
+form {
+  padding: 0 3% 3% 3%;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+form fieldset {
+  margin: 2rem 0;
+  border: 1px solid var(--dark-grey);
+  padding: .5rem 2%;
+}
+
+form legend {
+  color: var(--dark-grey);
+  margin: 0 1rem;
+  padding: 0 .5rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+form label.top, form div {
+  display: block;
+  padding-top: 1rem;
+  color: var(--dark-grey);
+  font-weight: 600;
+}
+
+form label.top input{
+  display: block;
+  font-size: 1rem;
+  border: solid 1px var(--dark-grey);
+  padding: .75rem;
+  width: 100%;
+}
+
+form label.top {
+  color: var(--dark-grey);
+}
+
+.form-list {
+  list-style-type: none;
+}
+
+.form-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 30px;
+}
