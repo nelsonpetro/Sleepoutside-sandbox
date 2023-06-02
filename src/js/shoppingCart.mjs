@@ -8,7 +8,7 @@ export default function ShoppingCart() {
   const subTotal = cartItems ? cartItems.reduce((acc, currentItem) => acc + currentItem.FinalPrice, 0) : 0;
   const itemCount = cartItems ? cartItems.length : 0;
   //Add the subtotal to the cart page
-  if(cartItems) {
+  if(cartItems.length != 0) {
     document.querySelector('.cart-total').textContent = `Subtotal: (${itemCount} Products) - $${subTotal.toFixed(2)}`;
   } else {
     document.querySelector('.cart-footer').classList.add('hide');
