@@ -26,10 +26,17 @@
       </section>
       <section class="products">
         <h2>Top Products - <span class="title"></span></h2>
-        <ul class="product-list"></ul>
+        <!-- <label for="sort">Sort by</label> -->
+        <select name="sort" id="sort">
+          <option value="" disabled selected>Sort By</option>
+          <option value="name">Name</option>
+          <option value="price">Price</option>
+        </select>
+        <ul id="product-list" class="product-list"></ul>
       </section>
     </main>
     <footer id="main-footer"></footer>
     <script type="module" src="../js/product-list.js" defer></script>
+    <script type="module" src="../js/searchProduct.js" defer></script>
   </body>
 </html>

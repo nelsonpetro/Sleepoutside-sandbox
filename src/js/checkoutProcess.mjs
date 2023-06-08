@@ -1,5 +1,6 @@
-import { getLocalStorage } from './utils.mjs';
+import { getLocalStorage, setLocalStorage } from './utils.mjs';
 import { checkout } from './externalServices.mjs';
+import { alertMessage, removeAllAlerts } from './utils.mjs';
 
 // takes a form element and returns an object where the key is the "name" of the form input.
 function formDataToJSON(formElement) {
@@ -49,7 +50,7 @@ const checkoutProcess = {
     // calculate the total of all the items in the cart
     const amounts = this.list.map((item) => item.FinalPrice);
     this.itemTotal = amounts.reduce((sum, item) => sum + item);
-    summaryElement.innerText = '$' + this.itemTotal;
+    summaryElement.innerText = '$' + this.itemTotal.toFixed(2);
   },
   calculateOrdertotal: function() {
     // calculate the shipping and tax amounts. Then use them to along with the cart total to figure out the order total
@@ -85,7 +86,20 @@ const checkoutProcess = {
     try {
       const res = await checkout(json);
       console.log(res);
+      location.assign('/checkout/success.html');
+      //Cleans all the local storage
+      //localStorage.clear();
+      //clear the cart
+      setLocalStorage('so-cart', []);
     } catch (err) {
+      // get rid of any preexisting alerts.
+      removeAllAlerts();
+      err.message
+        .then((resolvedValue) => {
+          for(let key in resolvedValue) {
+            alertMessage(resolvedValue[key]);
+          }
+        });
       console.log(err);
     }
   },
